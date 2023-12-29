@@ -1,0 +1,75 @@
+{
+  "columns": [
+    { "name": "To Do", "id": "1" },
+    { "name": "In Progress", "id": "2" },
+    { "name": "In Review", "id": "3" },
+    { "name": "Completed", "id": "4" }
+  ],
+  "tasks": [
+    {
+      "id": "1",
+      "task_name": "Social Media Post 1",
+      "column_id": "2",
+      "description": "Social Media Post description",
+      "attachment_count": 3,
+      "comment_count": 4,
+      "due_date": "2023-12-29T07:10:35.018Z",
+      "sort": 1,
+      "assignees": [
+        {
+          "id": "1",
+          "name": "Luke Huynh"
+        },
+        {
+          "id": "2",
+          "name": "Auke Huynh"
+        },
+        {
+          "id": "3",
+          "name": "Buke Huynh"
+        },
+        {
+          "id": "4",
+          "name": "Cuke Huynh"
+        },
+        {
+          "id": "5",
+          "name": "Duke Huynh"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "task_name": "Social Media Post 2",
+      "column_id": "1",
+      "description": "Social Media Post description",
+      "attachment_count": 3,
+      "comment_count": 4,
+      "due_date": "2023-12-29T07:10:35.018Z",
+      "sort": 2,
+      "assignees": [
+        {
+          "id": "1",
+          "name": "Luke Huynh"
+        },
+        {
+          "id": "2",
+          "name": "Auke Huynh"
+        },
+        {
+          "id": "3",
+          "name": "Buke Huynh"
+        },
+        {
+          "id": "4",
+          "name": "Cuke Huynh"
+        },
+        {
+          "id": "5",
+          "name": "Duke Huynh"
+        }
+      ]
+    }
+  ],
+  "avatar_colors": ["#C4E53E", "#9D9D9D", "#52A2FF", "#52D6FF", "#050505"]
+}
