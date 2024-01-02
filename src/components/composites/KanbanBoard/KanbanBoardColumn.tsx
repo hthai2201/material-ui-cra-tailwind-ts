@@ -25,10 +25,11 @@ type Props = {
   column: Column;
   tasks: Task[];
   index: number;
+  onOpenTaskDetails(task: Task): void;
 };
 
 const KanbanBoardColumn = (props: Props) => {
-  const { column, tasks, index } = props;
+  const { column, tasks, index, onOpenTaskDetails } = props;
   return (
     <Draggable draggableId={`COLUMN-${column.id}`} index={index}>
       {(provided, snapshot) => {
@@ -63,7 +64,11 @@ const KanbanBoardColumn = (props: Props) => {
                           index={taskIndex}
                         >
                           {(dragProvided, dragSnapshot) => (
-                            <TaskCard task={task} provided={dragProvided} />
+                            <TaskCard
+                              task={task}
+                              provided={dragProvided}
+                              onClick={onOpenTaskDetails}
+                            />
                           )}
                         </Draggable>
                       ))}

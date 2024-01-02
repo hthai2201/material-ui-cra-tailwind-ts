@@ -11,9 +11,12 @@ import {
 import reorder, { reorderTasks } from "./reoder";
 import KanbanBoardColumn from "./KanbanBoardColumn";
 import { groupBy } from "./utils";
+import TaskDetailsModal from "./TaskDetailsModal";
 function KanbanBoard() {
   const [columns, setColumns] = useState<Column[]>([]);
   const [tasks, setTasks] = useState<Record<string, Task[]>>({});
+  const [isOpenTaskDetailsModal, setIsOpenTaskDetailsModal] =
+    useState<Task | null>(null);
   useEffect(() => {
     setColumns(DUMMY_DATA.columns);
     setTasks(groupBy(DUMMY_DATA.tasks as Task[], (i) => i.column_id));
@@ -73,7 +76,12 @@ function KanbanBoard() {
     });
     setTasks(data.tasks);
   };
-
+  const handleOpenTaskDetailsModal = (task: Task) => {
+    setIsOpenTaskDetailsModal(task);
+  };
+  const handleCloseTaskDetailsModal = () => {
+    setIsOpenTaskDetailsModal(null);
+  };
   return (
     <Container
       disableGutters
@@ -97,6 +105,7 @@ function KanbanBoard() {
                       key={column.id}
                       column={column}
                       tasks={currentColumnTasks}
+                      onOpenTaskDetails={handleOpenTaskDetailsModal}
                     />
                   );
                 })}
@@ -106,6 +115,11 @@ function KanbanBoard() {
           }}
         </Droppable>
       </DragDropContext>
+      <TaskDetailsModal
+        task={isOpenTaskDetailsModal}
+        open={!!isOpenTaskDetailsModal}
+        onClose={handleCloseTaskDetailsModal}
+      />
     </Container>
   );
 }
